@@ -4,16 +4,28 @@
 
 body {
   background-color: #ecdeca;
+  margin: 2%;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .hero-section {
   display: flex;
-
+  flex-direction: row;
+  justify-content:space-evenly;
+  padding-top: 10%;
 }
 
 h1 {
-  font-size: 60px;
-  margin-top: 45%;
+  font-size: 55px;
+}
+
+.h1-top {
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.h1-btm {
+  font-weight: 700;
 }
 
 .app-name-bottom {
@@ -39,4 +51,36 @@ h1 {
 
 nav {
   display: flex;
+}
+
+nav img {
+  max-width: 5%;
+}
+
+.alps {
+  max-width: 500px;
+  max-height: 300px;
+  border-radius: 10%; 
+}
+
+.book-now-btn {
+  width: 50%;
+  height: 15%;
+  border-radius: 15px;
+  background-color:black;
+  color: white;
+  cursor: pointer;
+}
+
+.inputs-container {
+  display:flex;
+  justify-content: center;
+}
+
+.background {
+  width: 100vw;
+  height: 50vh;
+  padding: 3%;
+  border-radius: 100px;
+  filter:brightness(40%)
 }

@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
   <title>Travel Tracker</title>
 </head>
 <body>
   <nav>
-    <img src="src/images/airplane (1).png" alt="paper airplane logo">
+    <img src="./images/airplane (2).png" alt="paper airplane logo">
     <div class="app-name-container">
       <div class="app-name-top">Travel</div>
       <div class="app-name-bottom">Tracker</div>
@@ -16,10 +19,33 @@
   </nav>
   <div class="hero-section">
     <div>
-      <h1>Let's Make Your Best Trip Ever</h1>
+      <h1 class="h1-top">Let's Make Your</h1>
+      <h1 class="h1-btm">Best Trip Ever</h1>
+      <button class="book-now-btn">Book Travel Now ++ </button>
     </div>
-    <img src="./images/turing-logo.png" alt="turing logo">
+    <img class="alps" src="./images/alps.jpg" alt="turing logo">
   </div>
+  <articel class="inputs-container">
+    <img class="background" src="./images/luggage.jpg" alt="background image of luggage">
+    <div class="inputs">
+      <div class="date">
+        <label>Date</label>
+        <input>
+      </div>
+      <div class="duration">
+        <label>Duration</label>
+        <input>
+      </div>
+      <div class="num-travelers">
+        <label>Travelers</label>
+        <input>
+      </div>
+      <div class="destinations">
+        <label>Destination</label>
+        <input>
+      </div>
+    </div>
+  </articel>
   <script src="bundle.js"></script>
 </body>
 </html>
