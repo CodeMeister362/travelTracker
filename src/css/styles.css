@@ -1,3 +1,42 @@
+/* * {
+  border: solid black 2px;
+} */
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: #ecdeca;
+}
+
+.hero-section {
+  display: flex;
+
+}
+
+h1 {
+  font-size: 60px;
+  margin-top: 45%;
+}
+
+.app-name-bottom {
+  font-size: 20px;
+  padding-top: 0;
+  padding-left: 10%;
+}
+
+.app-name-top {
+  font-size: 20px;
+  padding-left: 10%;
+  margin-top: 10%;
+}
+
+.big-t {
+  font-size: 60px;
+}
+
+.app-name-container {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
 }
