@@ -1,5 +1,6 @@
 import { assert } from 'chai';
 import Destination from '../src/destinations'
+import destinationMockData from '../src/test-data/destinations-mock'
 
 describe('destination class', () => {
 
