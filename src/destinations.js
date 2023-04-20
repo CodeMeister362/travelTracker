@@ -1,7 +1,8 @@
 class Destination {
-	constructor() {
-
+	constructor(destinationMockData) {
+		this.data = destinationMockData
 	}
+	
 }
 
 export default Destination 
