@@ -1,3 +1,86 @@
+/* * {
+  border: solid black 2px;
+} */
+
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: #ecdeca;
+  margin: 2%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-evenly;
+  padding-top: 10%;
+}
+
+h1 {
+  font-size: 55px;
+}
+
+.h1-top {
+  font-weight: 300;
+  margin-top: 0;
+}
+
+.h1-btm {
+  font-weight: 700;
+}
+
+.app-name-bottom {
+  font-size: 20px;
+  padding-top: 0;
+  padding-left: 10%;
+}
+
+.app-name-top {
+  font-size: 20px;
+  padding-left: 10%;
+  margin-top: 10%;
+}
+
+.big-t {
+  font-size: 60px;
+}
+
+.app-name-container {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+}
+
+nav img {
+  max-width: 5%;
+}
+
+.alps {
+  max-width: 500px;
+  max-height: 300px;
+  border-radius: 10%; 
+}
+
+.book-now-btn {
+  width: 50%;
+  height: 15%;
+  border-radius: 15px;
+  background-color:black;
+  color: white;
+  cursor: pointer;
+}
+
+.inputs-container {
+  display:flex;
+  justify-content: center;
+}
+
+.background {
+  width: 100vw;
+  height: 50vh;
+  padding: 3%;
+  border-radius: 100px;
+  filter:brightness(40%)
 }
