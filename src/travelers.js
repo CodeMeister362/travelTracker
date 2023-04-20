@@ -1,6 +1,6 @@
 class Traveler {
-	constructor() {
-
+	constructor(travelerMockData) {
+		this.data = travelerMockData
 	}
 }
 
