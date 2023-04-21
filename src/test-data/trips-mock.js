@@ -1,8 +1,8 @@
 const tripsMockData = [
 	{
     "id": 1,
-    "userID": 44,
-    "destinationID": 49,
+    "userID": 1,
+    "destinationID": 1,
     "travelers": 1,
     "date": "2022/09/16",
     "duration": 8,
@@ -11,8 +11,8 @@ const tripsMockData = [
   },
   {
     "id": 2,
-    "userID": 35,
-    "destinationID": 25,
+    "userID": 1,
+    "destinationID": 2,
     "travelers": 5,
     "date": "2022/10/04",
     "duration": 18,
@@ -20,8 +20,8 @@ const tripsMockData = [
     "suggestedActivities": []
   }, {
     "id": 3,
-    "userID": 3,
-    "destinationID": 22,
+    "userID": 2,
+    "destinationID": 3,
     "travelers": 4,
     "date": "2022/05/22",
     "duration": 17,
@@ -29,8 +29,8 @@ const tripsMockData = [
     "suggestedActivities": []
   }, {
     "id": 4,
-    "userID": 43,
-    "destinationID": 14,
+    "userID": 2,
+    "destinationID": 4,
     "travelers": 2,
     "date": "2022/02/25",
     "duration": 10,
@@ -38,8 +38,8 @@ const tripsMockData = [
     "suggestedActivities": []
   }, {
     "id": 5,
-    "userID": 42,
-    "destinationID": 29,
+    "userID": 3,
+    "destinationID": 5,
     "travelers": 3,
     "date": "2022/04/30",
     "duration": 18,

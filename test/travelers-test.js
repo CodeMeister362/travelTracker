@@ -91,8 +91,8 @@ describe('traveler class', () => {
 		assert.deepEqual(traveler.tripData, [
 			{
 				"id": 1,
-				"userID": 44,
-				"destinationID": 49,
+				"userID": 1,
+				"destinationID": 1,
 				"travelers": 1,
 				"date": "2022/09/16",
 				"duration": 8,
@@ -101,8 +101,8 @@ describe('traveler class', () => {
 			},
 			{
 				"id": 2,
-				"userID": 35,
-				"destinationID": 25,
+				"userID": 1,
+				"destinationID": 2,
 				"travelers": 5,
 				"date": "2022/10/04",
 				"duration": 18,
@@ -110,8 +110,8 @@ describe('traveler class', () => {
 				"suggestedActivities": []
 			}, {
 				"id": 3,
-				"userID": 3,
-				"destinationID": 22,
+				"userID": 2,
+				"destinationID": 3,
 				"travelers": 4,
 				"date": "2022/05/22",
 				"duration": 17,
@@ -119,8 +119,8 @@ describe('traveler class', () => {
 				"suggestedActivities": []
 			}, {
 				"id": 4,
-				"userID": 43,
-				"destinationID": 14,
+				"userID": 2,
+				"destinationID": 4,
 				"travelers": 2,
 				"date": "2022/02/25",
 				"duration": 10,
@@ -128,8 +128,8 @@ describe('traveler class', () => {
 				"suggestedActivities": []
 			}, {
 				"id": 5,
-				"userID": 42,
-				"destinationID": 29,
+				"userID": 3,
+				"destinationID": 5,
 				"travelers": 3,
 				"date": "2022/04/30",
 				"duration": 18,
@@ -147,6 +147,24 @@ describe('traveler class', () => {
 		})
 	})
 
-	
+	it('should get past trip for the id passed in', () => {
+		assert.deepEqual(traveler.getPastTrips(1), [
+			{
+				"id": 1,
+				"destination": "Lima, Peru",
+				"estimatedLodgingCostPerDay": 70,
+				"estimatedFlightCostPerPerson": 400,
+				"image": "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
+				"alt": "overview of city buildings with a clear sky"
+			}, {
+				"id": 2,
+				"destination": "Stockholm, Sweden",
+				"estimatedLodgingCostPerDay": 100,
+				"estimatedFlightCostPerPerson": 780,
+				"image": "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+				"alt": "city with boats on the water during the day time"
+			}
+		])
+	})
 
 })

@@ -10,4 +10,32 @@ import './images/airplane (2).png'
 import './images/alps.jpg'
 import './images/luggage.jpg'
 
-console.log('This is the JavaScript entry file - your code begins here.');
+// Local Files
+import Traveler from './travelers'
+import travelerMockData from './test-data/traveler-mock'
+import tripsMockData from './test-data/trips-mock'
+import destinationMockData from './test-data/destinations-mock'
+
+const getStartedBtn = document.querySelector('.get-started-btn')
+const pastTripsDisplay = document.querySelector('.past-trips')
+const upcomingTripsDisplay = document.querySelector('.upcoming-trips')
+const spentDataDisplay = document.querySelector('.spent-data')
+
+function getRandomInt() {
+	return Math.floor(Math.random() * 3);
+};
+const randomNum = getRandomInt();
+
+const allData = new Traveler(travelerMockData, destinationMockData, destinationMockData)
+
+getStartedBtn.addEventListener('click', (e) => {
+	console.log(allData.getPastTrips(randomNum))
+	pastTripsDisplay.innerHTML = 
+	`
+	<h3>Past Trips</h3>
+	<ul>
+		<li>${allData.getPastTrips(randomNum)}</li>
+	</ul>
+	`
+
+})
