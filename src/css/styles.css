@@ -63,7 +63,7 @@ nav img {
   border-radius: 10%; 
 }
 
-.book-now-btn {
+.get-started-btn {
   width: 50%;
   height: 15%;
   border-radius: 15px;
@@ -100,4 +100,9 @@ nav img {
   color: #fff;
   justify-content:space-evenly;
   margin-top: 5%;
+}
+
+.past-trips {
+  display: flex;
+  flex-direction: column;
 }
