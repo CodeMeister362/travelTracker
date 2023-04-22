@@ -41,4 +41,12 @@ getStartedBtn.addEventListener('click', () => {
 		${pastTripData}
 	</ul>
 	`
+	
+	let allTimeSpent = allData.getTotalCost(randomNum)
+	spentDataDisplay.innerHTML = 
+	`
+	<h3>Spent To Date</h3>
+	<ul>
+		${allTimeSpent}
+	`
 })
