@@ -38,22 +38,33 @@ getStartedBtn.addEventListener('click', () => {
 			let pastTripData = allData.getPastTrips(randomNum).map(trip => {
 				return `<li>${trip.destination}</li>`
 			}).join('')
-			
 				pastTripsDisplay.innerHTML = 
 					`
 					<h3>Past Trips</h3>
-					<ul>
-						${pastTripData}
-					</ul>
+						<ul>
+							${pastTripData}
+						</ul>
 					`
 
-				let allTimeSpent = allData.getTotalCost(randomNum)
-					spentDataDisplay.innerHTML = 
-					`
-					<h3>Spent To Date</h3>
+			let allTimeSpent = allData.getTotalCost(randomNum).toFixed(2)
+				spentDataDisplay.innerHTML = 
+				`
+				<h3>Spent To Date</h3>
 					<ul>
 					$	${allTimeSpent}
-					`
+					</ul>
+				`
+
+			let upcomingTripData = allData.getUpcomingTrips(randomNum).map(trip => {
+				return `<li>${trip.destination}</li>`
+			}).join('')
+				upcomingTripsDisplay.innerHTML = 
+				`
+				<h3>Upcoming Trips</h3>
+					<ul>
+						${upcomingTripData}
+					</ul>
+				`
 			})
 			.catch(err=>{
 				console.log('somethings gone wrong', err)
