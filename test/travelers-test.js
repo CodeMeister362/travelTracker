@@ -167,4 +167,22 @@ describe('traveler class', () => {
 		])
 	})
 
+	it('should calculate amount spent on trips this year', () => {
+		assert.deepEqual(traveler.getTotalCost(1), 7326)
+		// 70 per day lodging peru = 560
+		// 1 taveler to peru = 400 for flight
+		// 8 days to peru 
+		// 400 flight cost per person times that by travelers peru
+		//peru = 960 total * 10%
+		//1056
+		
+		// 100 a day lodging = 1800
+		// 780 flight cost per person sweden = 3900
+		// 5 travelers to sweden = 
+		// 18 days to sweden 
+		// sweden = 5700 * 10%
+		//agent cost 570
+		//6270
+	})
+
 })
