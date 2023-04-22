@@ -47,7 +47,7 @@ class Traveler {
 		let lodgingCosts = 0
 		let totalCost = 0
 		let withAgentFee = 0
-		let costPerTrip = []
+		let costOfTrips = []
 		let allTimeTotal = 0
 
 		this.tripData.map(trip => {
@@ -57,12 +57,12 @@ class Traveler {
 					lodgingCosts = trip.duration * past.estimatedLodgingCostPerDay
 					totalCost = flightCosts + lodgingCosts
 					withAgentFee = (totalCost * .1) + totalCost
-					costPerTrip.push(withAgentFee)
+					costOfTrips.push(withAgentFee)
 				}
 			})
 		})
 		const allPrice = () => {
-			costPerTrip.map(cost => {
+			costOfTrips.map(cost => {
 				return	allTimeTotal += cost
 			})
 		}
