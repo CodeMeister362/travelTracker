@@ -167,4 +167,8 @@ describe('traveler class', () => {
 		])
 	})
 
+	it('should calculate amount spent on trips this year', () => {
+		assert.deepEqual(traveler.getTotalCost(1), 7326)
+	})
+
 })

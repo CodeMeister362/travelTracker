@@ -26,16 +26,27 @@ function getRandomInt() {
 };
 const randomNum = getRandomInt();
 
-const allData = new Traveler(travelerMockData, destinationMockData, destinationMockData)
+const allData = new Traveler(travelerMockData, destinationMockData, tripsMockData)
 
-getStartedBtn.addEventListener('click', (e) => {
-	console.log(allData.getPastTrips(randomNum))
+getStartedBtn.addEventListener('click', () => {
+
+	let pastTripData = allData.getPastTrips(randomNum).map(trip => {
+		return `<li>${trip.destination}</li>`
+	}).join('')
+
 	pastTripsDisplay.innerHTML = 
 	`
 	<h3>Past Trips</h3>
 	<ul>
-		<li>${allData.getPastTrips(randomNum)}</li>
+		${pastTripData}
 	</ul>
 	`
-
+	
+	let allTimeSpent = allData.getTotalCost(randomNum)
+	spentDataDisplay.innerHTML = 
+	`
+	<h3>Spent To Date</h3>
+	<ul>
+		${allTimeSpent}
+	`
 })
