@@ -19,7 +19,6 @@ let destinationApi = fetch('http://localhost:3001/api/v1/destinations').then(res
 let tripsApi = fetch('http://localhost:3001/api/v1/trips').then(res => res.json())
 
 
-
 const getStartedBtn = document.querySelector('.get-started-btn')
 const pastTripsDisplay = document.querySelector('.past-trips')
 const upcomingTripsDisplay = document.querySelector('.upcoming-trips')
@@ -31,13 +30,11 @@ function getRandomInt() {
 const randomNum = getRandomInt();
 
 getStartedBtn.addEventListener('click', () => {
-
 	Promise.all([travelerApi, destinationApi, tripsApi])
 		.then(allApiData => {
-
+			
 			const allData = new Traveler(allApiData[0].travelers, allApiData[1].destinations, allApiData[2].trips)
 
-				
 			let pastTripData = allData.getPastTrips(randomNum).map(trip => {
 				return `<li>${trip.destination}</li>`
 			}).join('')
@@ -58,7 +55,6 @@ getStartedBtn.addEventListener('click', () => {
 					$	${allTimeSpent}
 					`
 			})
-
 			.catch(err=>{
 				console.log('somethings gone wrong', err)
 		})
