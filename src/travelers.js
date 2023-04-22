@@ -8,7 +8,25 @@ class Traveler {
 	getPastTrips = (id) => {
 		let destinationIDArr = []
 		this.tripData.forEach(trip => {
-			if(trip.userID === id){
+			if(trip.userID === id && trip.status !== 'pending'){
+				destinationIDArr.push(trip.destinationID) 
+			}
+		})
+		let places = []
+		this.destinationData.forEach(place => {
+			destinationIDArr.forEach(id => {
+				if(id === place.id){
+					places.push(place)
+				}
+			})
+		})
+		return places
+	}
+
+	getUpcomingTrips = (id) => {
+		let destinationIDArr = []
+		this.tripData.forEach(trip => {
+			if(trip.userID === id && trip.status === 'pending'){
 				destinationIDArr.push(trip.destinationID) 
 			}
 		})
@@ -43,13 +61,11 @@ class Traveler {
 				}
 			})
 		})
-
 		const allPrice = () => {
 			costPerTrip.map(cost => {
 				return	allTimeTotal += cost
 			})
 		}
-
 		allPrice()
 		return allTimeTotal
 	}
