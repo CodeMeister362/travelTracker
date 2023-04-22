@@ -106,7 +106,7 @@ describe('traveler class', () => {
 				"travelers": 5,
 				"date": "2022/10/04",
 				"duration": 18,
-				"status": "approved",
+				"status": "pending",
 				"suggestedActivities": []
 			}, {
 				"id": 3,
@@ -147,7 +147,7 @@ describe('traveler class', () => {
 		})
 	})
 
-	it('should get past trip for the id passed in', () => {
+	it('should get past trips for the id passed in', () => {
 		assert.deepEqual(traveler.getPastTrips(1), [
 			{
 				"id": 1,
@@ -156,7 +156,13 @@ describe('traveler class', () => {
 				"estimatedFlightCostPerPerson": 400,
 				"image": "https://images.unsplash.com/photo-1489171084589-9b5031ebcf9b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80",
 				"alt": "overview of city buildings with a clear sky"
-			}, {
+			}
+		])
+	})
+
+	it('should get upcoming trips', () => {
+		assert.deepEqual(traveler.getUpcomingTrips(1), [
+			{
 				"id": 2,
 				"destination": "Stockholm, Sweden",
 				"estimatedLodgingCostPerDay": 100,
@@ -168,7 +174,7 @@ describe('traveler class', () => {
 	})
 
 	it('should calculate amount spent on trips this year', () => {
-		assert.deepEqual(traveler.getTotalCost(1), 7326)
+		assert.deepEqual(traveler.getTotalCost(1), 1056)
 	})
 
 })

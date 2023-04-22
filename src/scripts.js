@@ -1,10 +1,7 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
+// CSS (SCSS) file
 import './css/styles.css';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
+// images
 import './images/turing-logo.png'
 import './images/airplane (2).png'
 import './images/alps.jpg'
@@ -16,37 +13,54 @@ import travelerMockData from './test-data/traveler-mock'
 import tripsMockData from './test-data/trips-mock'
 import destinationMockData from './test-data/destinations-mock'
 
+// API Imports
+let travelerApi = fetch('http://localhost:3001/api/v1/travelers').then(res => res.json())
+let destinationApi = fetch('http://localhost:3001/api/v1/destinations').then(res => res.json())
+let tripsApi = fetch('http://localhost:3001/api/v1/trips').then(res => res.json())
+
+
+
 const getStartedBtn = document.querySelector('.get-started-btn')
 const pastTripsDisplay = document.querySelector('.past-trips')
 const upcomingTripsDisplay = document.querySelector('.upcoming-trips')
 const spentDataDisplay = document.querySelector('.spent-data')
 
 function getRandomInt() {
-	return Math.floor(Math.random() * 3);
+	return Math.floor(Math.random() * 50);
 };
 const randomNum = getRandomInt();
 
-const allData = new Traveler(travelerMockData, destinationMockData, tripsMockData)
-
 getStartedBtn.addEventListener('click', () => {
 
-	let pastTripData = allData.getPastTrips(randomNum).map(trip => {
-		return `<li>${trip.destination}</li>`
-	}).join('')
+	Promise.all([travelerApi, destinationApi, tripsApi])
+		.then(allApiData => {
 
-	pastTripsDisplay.innerHTML = 
-	`
-	<h3>Past Trips</h3>
-	<ul>
-		${pastTripData}
-	</ul>
-	`
-	
-	let allTimeSpent = allData.getTotalCost(randomNum)
-	spentDataDisplay.innerHTML = 
-	`
-	<h3>Spent To Date</h3>
-	<ul>
-		${allTimeSpent}
-	`
+			const allData = new Traveler(allApiData[0].travelers, allApiData[1].destinations, allApiData[2].trips)
+
+				
+			let pastTripData = allData.getPastTrips(randomNum).map(trip => {
+				return `<li>${trip.destination}</li>`
+			}).join('')
+			
+				pastTripsDisplay.innerHTML = 
+					`
+					<h3>Past Trips</h3>
+					<ul>
+						${pastTripData}
+					</ul>
+					`
+
+				let allTimeSpent = allData.getTotalCost(randomNum)
+					spentDataDisplay.innerHTML = 
+					`
+					<h3>Spent To Date</h3>
+					<ul>
+					$	${allTimeSpent}
+					`
+			})
+
+			.catch(err=>{
+				console.log('somethings gone wrong', err)
+		})
+
 })
