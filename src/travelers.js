@@ -69,7 +69,16 @@ class Traveler {
 		allPrice()
 		return allTimeTotal
 	}
-	
+
+	getNewTripCost = (destinationId, numOfTravelers, numOfDays) => {
+		let destination = this.destinationData.find(data => {
+			return data.id === destinationId
+		})
+		let flightCost = destination.estimatedFlightCostPerPerson * numOfTravelers
+		let lodgingCost = destination.estimatedLodgingCostPerDay * numOfDays
+		let total = flightCost + lodgingCost
+		return total
+	}
 }
 
 export default Traveler
