@@ -29,22 +29,38 @@
     <img class="background" src="./images/luggage.jpg" alt="background image of luggage">
     <div class="inputs-trips-container">
       <div class="inputs">
-        <div class="date">
+        <div>
           <label>Date</label>
-          <input>
+          <input class="date" type="date" min="datetime">
         </div>
-        <div class="duration">
+        <div>
           <label>Duration</label>
-          <input>
+          <input class="duration" type="number" min="1">
         </div>
-        <div class="num-travelers">
+        <div>
           <label>Travelers</label>
-          <input>
+          <input class="num-travelers" type="number" min="1">
         </div>
-        <div class="destinations">
+        <div>
           <label>Destination</label>
-          <input>
+          <input class="destinations" list="list">
+            <datalist id="list">
+              <option value=" Amsterdam, Netherlands"> <option value="Anchorage, Alaska"> <option value="Antananarivo, Madagascar"> <option value="Bangkok, Thailand">
+                <option value="Brussels, Belgium"> <option value="Calgary, Canada"> <option value="Cape Town, South Africa"> <option value="Cartagena, Colombia">
+                <option value="Castries, St Lucia"> <option value="Caye Caulker, Belize"> <option value="Colombo, Sri Lanka"> <option value="Copenhagen, Denmark">
+                <option value="Dar es Salaam, Tanzania"> <option value="Frankfurt, Germany"> <option value="Cape Town, South Africa"> <option value="Helsinki, Finland">
+                <option value="Hobart, Tasmania"> <option value="Jaipur, India"> <option value="Jakarta, Indonesia"> <option value="Kathmandu, Nepal">
+                <option value="La Isla Tortuga, Costa Rica"> <option value="Lima, Peru"> <option value="London, England"> <option value="Madrid, Spain">
+                <option value="Manila, Philippines"> <option value="Marrakesh, Morocco"> <option value="Miami, Florida"> <option value="Mikonos, Greece">
+                <option value="Montego Bay, Jamaica"> <option value="Nassau, The Bahamas"> <option value="New York, New York"> <option value="Paris, France">
+                <option value="Porto, Portugal"> <option value="Quito, Ecuador"> <option value="Reykjavík, Iceland"> <option value="Rome, Italy">
+                <option value="San Francisco, California"> <option value="San Juan, Puerto Rico"> <option value="Santo Domingo, Dominican Republic"> <option value="Seoul, South Korea">
+                <option value="St. Petersburg, Russia"> <option value="Stockholm, Sweden"> <option value="Sydney, Austrailia"> <option value="Tokyo, Japan">
+                <option value="Toronto, Canada'"> <option value="Tulum, Mexico"> <option value="Victoria, Seychelles"> <option value="Vilnius, Lithuania">
+                <option value="Wellington, New Zealand"> <option value="Willemstad, Curaçao"> <option value="Zürich, Switzerland">
+            </datalist>
         </div>
+        <button class="book-btn"> Book Now! </button>
       </div>
       <div class="plan-trips">
         <div class="past-trips">
