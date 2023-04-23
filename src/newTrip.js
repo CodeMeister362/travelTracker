@@ -7,8 +7,9 @@ class NewTrip {
 		this.date = data
 		this.duration = duration
 		this.status = status
-		this.suggestedActivites = []
+		this.suggestedActivities = []
 	}
+	
 }
 
 export default NewTrip

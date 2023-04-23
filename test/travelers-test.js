@@ -177,4 +177,8 @@ describe('traveler class', () => {
 		assert.deepEqual(traveler.getTotalCost(1), 1056)
 	})
 
+	it('should estimate the current trip', () => {
+		assert.deepEqual(traveler.getNewTripCost(5, 3, 18), 4650)
+	})
+
 })
