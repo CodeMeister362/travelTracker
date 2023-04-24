@@ -36,33 +36,32 @@ const showEstimate = document.querySelector('.estimate')
 const loginName = document.querySelector('#user-name')
 const loginPassword = document.querySelector('#password')
 
-getStartedBtn.addEventListener('click', () => {
-	let userNum = Number(loginName.value.slice(8,10))
-	let travelerUserName
-	if(userNum <= 50 && userNum >= 1){
-		travelerUserName = `traveler${userNum}`
-	} else {
-		alert('User Not Found')
-	}
-	if(loginName.value === travelerUserName && loginPassword.value === 'travel') {
+Promise.all([travelerApi, destinationApi, tripsApi])
+	.then(allApiData => {
 
-	unHideImg.removeAttribute('hidden')
-	unHideInputs.removeAttribute('hidden')
+	let	allData = new Traveler(allApiData[0].travelers, allApiData[1].destinations, allApiData[2].trips)
+	
+	getStartedBtn.addEventListener('click', () => {
+		let userNum = Number(loginName.value.slice(8,10))
+		let travelerUserName
+		if(userNum <= 50 && userNum >= 1) {
+			travelerUserName = `traveler${userNum}`
+		} else {
+			alert('User Not Found')
+		}
 
-	Promise.all([travelerApi, destinationApi, tripsApi])
-		.then(allApiData => {
-		let	allData = new Traveler(allApiData[0].travelers, allApiData[1].destinations, allApiData[2].trips)
-
-		let pastTripData = allData.getPastTrips(userNum).map(trip => {
-			return `<li>${trip.destination}</li>`
-		}).join('')
-		pastTripsDisplay.innerHTML = 
-			`<h2>Past Trips</h2>
-				<ul>
-					${pastTripData}
-				</ul>
-			`
-
+		if(loginName.value === travelerUserName && loginPassword.value === 'travel') {
+			unHideImg.removeAttribute('hidden')
+			unHideInputs.removeAttribute('hidden')
+			let pastTripData = allData.getPastTrips(userNum).map(trip => {
+				return `<li>${trip.destination}</li>`
+			}).join('')
+			pastTripsDisplay.innerHTML = 
+				`<h2>Past Trips</h2>
+					<ul>
+						${pastTripData}
+					</ul>
+				`
 			let upcomingTripData = allData.getUpcomingTrips(userNum).map(trip => {
 				return `<li>${trip.destination}</li>`
 			}).join('')
@@ -72,22 +71,18 @@ getStartedBtn.addEventListener('click', () => {
 					${upcomingTripData}
 				</ul>
 			`
-
-		travelerName.innerHTML = `Welcome back ${allData.travelerData[userNum - 1].name}!`
-		let allTimeSpent = allData.getTotalCost(userNum).toFixed(2)
-			spentDataDisplay.innerHTML = 
-			`<h2>Spent To Date</h2>
-				<p>$ ${allTimeSpent}</p>
-			`	
-		})
-} else {
-	alert('Username or Password is not correct.')
-}})
-
-bookButton.addEventListener('click', () => {
-	Promise.all([travelerApi, destinationApi, tripsApi])
-		.then(allApiData => {
-		let	allData = new Traveler(allApiData[0].travelers, allApiData[1].destinations, allApiData[2].trips)
+			travelerName.innerHTML = `Welcome back ${allData.travelerData[userNum - 1].name}!`
+			let allTimeSpent = allData.getTotalCost(userNum).toFixed(2)
+				spentDataDisplay.innerHTML = 
+				`<h2>Spent To Date</h2>
+					<p>$ ${allTimeSpent}</p>
+				`	
+		} else {
+			alert('Password is not correct.')
+		}
+	})
+		
+	bookButton.addEventListener('click', () => {
 		let newTripId = (allApiData[2].trips.length + 1)
 		let userNum = Number(loginName.value.slice(8,10))
 		let placeID = allData.destinationData.find(place => {
@@ -95,7 +90,7 @@ bookButton.addEventListener('click', () => {
 				return place.id
 			}
 		})
-
+	
 		const postNewTrip = () => {
 			if(inputDate.value && inputDuration.value && inputTravelers.value && inputDestinations.value){
 				const dataToPost = new NewTrip(newTripId, userNum, placeID.id, parseInt(inputTravelers.value), inputDate.value.replace(/-/g, '/'), parseInt(inputDuration.value), 'pending', [])
@@ -109,11 +104,9 @@ bookButton.addEventListener('click', () => {
 				.then(data => data.json())
 				.then(data => console.log(data))
 				.catch(err => console.log(`Error at: ${err}`))
-
 				let newTripDestination = allData.destinationData.filter(place => {
 					return place.id === dataToPost.destinationID
 				})
-
 				let upcomingTripData = allData.getUpcomingTrips(userNum).map(trip => {
 					return `<li>${trip.destination}</li>`
 				}).join('')
@@ -128,23 +121,22 @@ bookButton.addEventListener('click', () => {
 		}
 		postNewTrip()
 	})
-})
-
-estimateBtn.addEventListener('click', () => {
-	Promise.all([travelerApi, destinationApi, tripsApi])
-		.then(allApiData => {
+	
+	estimateBtn.addEventListener('click', () => {
 		if(inputDate.value && inputDuration.value && inputTravelers.value && inputDestinations.value){
-			let data = new Traveler(allApiData[0].travelers, allApiData[1].destinations, allApiData[2].trips)
-			let newTripDestination = data.destinationData.find(place => {
+			let newTripDestination = allData.destinationData.find(place => {
 				return place.destination === inputDestinations.value
 			})
-
-			let newTripCost = data.getNewTripCost(newTripDestination.id, inputTravelers.value, inputDuration.value) 
+			let newTripCost = allData.getNewTripCost(newTripDestination.id, inputTravelers.value, inputDuration.value) 
 			let tripPlusAgentFee = newTripCost + (newTripCost * .1)
 			showEstimate.innerHTML = `$${tripPlusAgentFee}`
 		}
 	})
 })
+
+
+
+
 
 
 
