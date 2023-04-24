@@ -34,7 +34,7 @@ const tripsMockData = [
     "travelers": 2,
     "date": "2022/02/25",
     "duration": 10,
-    "status": "approved",
+    "status": "pending",
     "suggestedActivities": []
   }, {
     "id": 5,

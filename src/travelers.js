@@ -9,7 +9,7 @@ class Traveler {
 		let destinationIDArr = []
 		this.tripData.forEach(trip => {
 			if(trip.userID === id && trip.status !== 'pending'){
-				destinationIDArr.push(trip.destinationID) 
+				 destinationIDArr.push(trip.destinationID) 
 			}
 		})
 		let places = []
@@ -20,14 +20,18 @@ class Traveler {
 				}
 			})
 		})
-		return places
+		if(places.length >= 1) {
+			return places
+		} else {
+			return 'Error: User Not Found'
+		}
 	}
 
 	getUpcomingTrips = (id) => {
 		let destinationIDArr = []
 		this.tripData.forEach(trip => {
 			if(trip.userID === id && trip.status === 'pending'){
-				destinationIDArr.push(trip.destinationID) 
+				 destinationIDArr.push(trip.destinationID) 
 			}
 		})
 		let places = []

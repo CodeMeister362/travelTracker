@@ -1,7 +1,3 @@
-/* * {
-  border: solid black 2px;
-} */
-
 body {
   background-color: #ecdeca;
   margin: 2%;
@@ -49,6 +45,13 @@ h1 {
   flex-direction: column;
 }
 
+.login-box { 
+  display:flex;
+  flex-direction: column;
+  max-width:50%;
+  margin-bottom: 2%;
+}
+
 nav {
   display: flex;
 }
@@ -74,6 +77,7 @@ nav img {
 
 .inputs-container {
   display:flex;
+  margin-top: 2%;
 }
 
 .background {
