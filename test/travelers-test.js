@@ -124,7 +124,7 @@ describe('traveler class', () => {
 				"travelers": 2,
 				"date": "2022/02/25",
 				"duration": 10,
-				"status": "approved",
+				"status": "pending",
 				"suggestedActivities": []
 			}, {
 				"id": 5,
@@ -158,6 +158,17 @@ describe('traveler class', () => {
 				"alt": "overview of city buildings with a clear sky"
 			}
 		])
+		assert.deepEqual(traveler.getPastTrips(2), [
+			{
+				"id": 3,
+				"destination": "Sydney, Austrailia",
+				"estimatedLodgingCostPerDay": 130,
+				"estimatedFlightCostPerPerson": 950,
+				"image": "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+				"alt": "opera house and city buildings on the water with boats"
+			}
+		])
+		assert.equal(traveler.getPastTrips(10), 'Error: User Not Found')
 	})
 
 	it('should get upcoming trips', () => {
@@ -169,6 +180,16 @@ describe('traveler class', () => {
 				"estimatedFlightCostPerPerson": 780,
 				"image": "https://images.unsplash.com/photo-1560089168-6516081f5bf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
 				"alt": "city with boats on the water during the day time"
+			},
+		])
+		assert.deepEqual(traveler.getUpcomingTrips(2), [
+			{
+				"id": 4,
+				"destination": "Cartagena, Colombia",
+				"estimatedLodgingCostPerDay": 65,
+				"estimatedFlightCostPerPerson": 350,
+				"image": "https://images.unsplash.com/photo-1558029697-a7ed1a4b94c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+				"alt": "boats at a dock during the day time"
 			}
 		])
 	})

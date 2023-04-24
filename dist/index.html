@@ -23,7 +23,7 @@
       <h1 class="h1-btm">Best Trip Ever</h1>
       <button class="get-started-btn"> Get Started Now ++ </button>
     </div>
-    <img class="alps" src="./images/alps.jpg" alt="turing logo">
+    <img class="alps" src="./images/alps.jpg" alt="picture of high altitude lake in mountains">
   </div>
   <articel class="inputs-container">
     <img hidden class="background" src="./images/luggage.jpg" alt="background image of luggage">
@@ -31,20 +31,20 @@
       <div class="travelerName"></div>
       <div class="inputs">
         <div>
-          <label>Date</label>
-          <input class="date" type="date" min="datetime">
+          <label for="travel-date">Date</label>
+          <input class="date" id="travel-date" type="date" min="datetime">
         </div>
         <div>
-          <label>Duration</label>
-          <input class="duration" type="number" min="1">
+          <label for="trip-duration">Duration</label>
+          <input class="duration" id="trip-duration" type="number" min="1">
         </div>
         <div>
-          <label>Travelers</label>
-          <input class="num-travelers" type="number" min="1">
+          <label for="number-of-travelers">Travelers</label>
+          <input class="num-travelers" id="number-of-travelers" type="number" min="1">
         </div>
         <div>
-          <label>Destination</label>
-          <input class="destinations" list="list">
+          <label for="pick-destination">Destination</label>
+          <input class="destinations" id="pick-destination" list="list">
             <datalist id="list">
               <option value=" Amsterdam, Netherlands"> <option value="Anchorage, Alaska"> <option value="Antananarivo, Madagascar"> <option value="Bangkok, Thailand">
                 <option value="Brussels, Belgium"> <option value="Calgary, Canada"> <option value="Cape Town, South Africa"> <option value="Cartagena, Colombia">
@@ -67,13 +67,13 @@
       </div>
       <div class="plan-trips">
         <div class="past-trips">
-          <h3>Past Trips</h3>
+          <h2>Past Trips</h2>
         </div>
         <div class="upcoming-trips">
-          <h3>Upcoming Trips</h3>
+          <h2>Upcoming Trips</h2>
         </div>
         <div class="spent-data">
-          <h3>Spent To Date</h3>
+          <h2>Spent To Date</h2>
         </div>   
       </div>
     </div>
