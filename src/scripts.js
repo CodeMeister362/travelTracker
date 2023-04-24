@@ -38,7 +38,12 @@ const loginPassword = document.querySelector('#password')
 
 getStartedBtn.addEventListener('click', () => {
 	let userNum = Number(loginName.value.slice(8,10))
-	let travelerUserName = `traveler${userNum}`
+	let travelerUserName
+	if(userNum <= 50 && userNum >= 1){
+		travelerUserName = `traveler${userNum}`
+	} else {
+		alert('User Not Found')
+	}
 	if(loginName.value === travelerUserName && loginPassword.value === 'travel') {
 
 	unHideImg.removeAttribute('hidden')
@@ -47,15 +52,26 @@ getStartedBtn.addEventListener('click', () => {
 	Promise.all([travelerApi, destinationApi, tripsApi])
 		.then(allApiData => {
 		let	allData = new Traveler(allApiData[0].travelers, allApiData[1].destinations, allApiData[2].trips)
+
 		let pastTripData = allData.getPastTrips(userNum).map(trip => {
 			return `<li>${trip.destination}</li>`
 		}).join('')
-			pastTripsDisplay.innerHTML = 
-				`<h2>Past Trips</h2>
-					<ul>
-						${pastTripData}
-					</ul>
-				`
+		pastTripsDisplay.innerHTML = 
+			`<h2>Past Trips</h2>
+				<ul>
+					${pastTripData}
+				</ul>
+			`
+
+			let upcomingTripData = allData.getUpcomingTrips(userNum).map(trip => {
+				return `<li>${trip.destination}</li>`
+			}).join('')
+			upcomingTripsDisplay.innerHTML = 
+			`<h2>Upcoming Trips</h2>
+				<ul>
+					${upcomingTripData}
+				</ul>
+			`
 
 		travelerName.innerHTML = `Welcome back ${allData.travelerData[userNum - 1].name}!`
 		let allTimeSpent = allData.getTotalCost(userNum).toFixed(2)
