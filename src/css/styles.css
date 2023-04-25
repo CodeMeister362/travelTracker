@@ -1,15 +1,70 @@
 body {
   background-color: #ecdeca;
-  margin: 2%;
   font-family: 'Montserrat', sans-serif;
+  padding: 7vw;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+button,
+input {
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 0px .5px 1.5px rgba(0,0,0,.2)
+}
+input {
+  outline: none;
+  border: none;
+  padding-left: 15px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 13px;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.estimate-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+  z-index: 3;
+  position: relative;
+  gap: 30px;
+}
+
+.estimate-container button {
+  width: 50%;
+}
+
+input#password {
+  margin-top: 5px;
+}
+
+.estimate {
+  position: absolute;
+  left: 0;
+  top: 30px;
+  font-size: 14px;
+  color: #fff;
 }
 
 .hero-section {
   display: flex;
   flex-direction: row;
   justify-content:space-evenly;
-  padding-top: 10%;
+  margin: 5% 0;
 }
+
+.hero-section div:nth-child(1),
+.hero-section div:nth-child(2) {
+  width: 50%;
+}
+
 
 h1 {
   font-size: 55px;
@@ -20,8 +75,19 @@ h1 {
   margin-top: 0;
 }
 
-.h1-btm {
-  font-weight: 700;
+.h1-top span{
+  font-weight: bold;
+}
+
+
+h2, .travelerName {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  font-weight: bold;
 }
 
 .app-name-bottom {
@@ -68,42 +134,63 @@ nav img {
 
 .get-started-btn {
   width: 50%;
-  height: 15%;
-  border-radius: 15px;
   background-color:black;
   color: white;
   cursor: pointer;
 }
 
-.inputs-container {
-  display:flex;
-  margin-top: 2%;
+.inputs-container:before {
+  content:'';
+  position: absolute;
+  width:100%;
+  height: 100%;
+  background: #000;
+  opacity: .5;
+  top:0;
+  left:0;
 }
 
-.background {
-  width: 100vw;
-  height: 50vh;
+.inputs-container,
+.alps {
+  display: flex;
   margin-top: 2%;
-  border-radius: 80px;
-  filter:brightness(40%);
-  position: absolute;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  background: center / cover url("/src/images/luggage.jpg") no-repeat;
+  padding: 5%;
+}
+
+.alps {
+  background: center / cover url("/src/images/alps.jpg") no-repeat;
 }
 
 .inputs {
   display:flex;
   flex-direction:row;
   position: relative;
-  margin-top: 5%;
-  margin-left: 10%;
   color: #fff;
+  margin: 30px 0;
+  gap: 30px;
+}
+
+.inputs div {
+  width: 25%;
+}
+.inputs input {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .plan-trips {
   display: flex;
   position: relative;
   color: #fff;
-  justify-content:space-evenly;
-  margin-top: 2%;
+  gap: 5%;
+}
+
+ul{
+  padding-left: 18px;
 }
 
 .past-trips {
@@ -113,9 +200,7 @@ nav img {
 
 .travelerName {
   display: flex;
-  margin-left: 5%;
-}
-
-.get-estimate, .book-btn {
-  margin: 1%;
+  color: #fff;
+  z-index: 5;
+  position: relative;
 }

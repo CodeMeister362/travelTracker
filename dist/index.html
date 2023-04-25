@@ -19,8 +19,7 @@
   </nav>
   <div class="hero-section">
     <div>
-      <h1 class="h1-top">Let's Make Your</h1>
-      <h1 class="h1-btm">Best Trip Ever</h1>
+      <h1 class="h1-top">Let's Make Your <span>Best Trip Ever</span></h1>
       <div class="login-box">
         <label for="user-name"></label>
         <input type="text" id="user-name" name="user-name" placeholder="traveler##">
@@ -29,11 +28,10 @@
       </div>
       <button class="get-started-btn"> Login </button>
     </div>
-    <img class="alps" src="./images/alps.jpg" alt="picture of high altitude lake in mountains">
+    <div class="alps"></div>
   </div>
-  <articel class="inputs-container">
-    <img hidden class="background" src="./images/luggage.jpg" alt="background image of luggage">
-    <div hidden class="inputs-trips-container">
+  <article class="inputs-container hidden">
+    <div class="inputs-trips-container">
       <div class="travelerName"></div>
       <div class="inputs">
         <div>
@@ -50,7 +48,7 @@
         </div>
         <div>
           <label for="pick-destination">Destination</label>
-          <input class="destinations" id="pick-destination" list="list">
+          <input placeholder="Location" class="destinations" id="pick-destination" list="list">
             <datalist id="list">
               <option value=" Amsterdam, Netherlands"> <option value="Anchorage, Alaska"> <option value="Antananarivo, Madagascar"> <option value="Bangkok, Thailand">
                 <option value="Brussels, Belgium"> <option value="Calgary, Canada"> <option value="Cape Town, South Africa"> <option value="Cartagena, Colombia">
@@ -67,6 +65,8 @@
                 <option value="Wellington, New Zealand"> <option value="Willemstad, Curaçao"> <option value="Zürich, Switzerland">
             </datalist>
         </div>
+      </div>
+      <div class="estimate-container">
         <button class="get-estimate">Travel Estimate</button>
         <p class="estimate"></p>
         <button class="book-btn"> Request Booking </button>
@@ -83,7 +83,7 @@
         </div>   
       </div>
     </div>
-  </articel>
+  </article>
   <script src="bundle.js"></script>
 </body>
 </html>

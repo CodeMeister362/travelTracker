@@ -28,13 +28,12 @@ const inputDuration = document.querySelector('.duration')
 const inputTravelers = document.querySelector('.num-travelers')
 const inputDestinations = document.querySelector('.destinations')
 const bookButton = document.querySelector('.book-btn')
-const unHideImg = document.querySelector('.background')
-const unHideInputs = document.querySelector('.inputs-trips-container')
 const travelerName = document.querySelector('.travelerName')
 const estimateBtn = document.querySelector('.get-estimate')
 const showEstimate = document.querySelector('.estimate')
 const loginName = document.querySelector('#user-name')
 const loginPassword = document.querySelector('#password')
+const unHide = document.querySelector('.hidden')
 
 Promise.all([travelerApi, destinationApi, tripsApi])
 	.then(allApiData => {
@@ -51,8 +50,7 @@ Promise.all([travelerApi, destinationApi, tripsApi])
 		}
 
 		if(loginName.value === travelerUserName && loginPassword.value === 'travel') {
-			unHideImg.removeAttribute('hidden')
-			unHideInputs.removeAttribute('hidden')
+			unHide.classList.remove('hidden')
 			let pastTripData = allData.getPastTrips(userNum).map(trip => {
 				return `<li>${trip.destination}</li>`
 			}).join('')
@@ -127,13 +125,14 @@ Promise.all([travelerApi, destinationApi, tripsApi])
 			let newTripDestination = allData.destinationData.find(place => {
 				return place.destination === inputDestinations.value
 			})
+			console.log(newTripDestination)
 			let newTripCost = allData.getNewTripCost(newTripDestination.id, inputTravelers.value, inputDuration.value) 
 			let tripPlusAgentFee = newTripCost + (newTripCost * .1)
 			showEstimate.innerHTML = `$ ${tripPlusAgentFee} (10% Agent Fee Added)`
 		}
 	})
 }).catch(err => {
-	console.log('Fetch request failed')
+	console.log(err)
 	alert(err)
 })
 
