@@ -132,6 +132,9 @@ Promise.all([travelerApi, destinationApi, tripsApi])
 			showEstimate.innerHTML = `$ ${tripPlusAgentFee} (10% Agent Fee Added)`
 		}
 	})
+}).catch(err => {
+	console.log('Fetch request failed')
+	alert(err)
 })
 
 
