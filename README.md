@@ -18,6 +18,6 @@ I completed this solo project over 7 days and after attending 12 weeks of school
 * This application was built using JS, HTML, CSS and Webpack.
 
 ### Installation Instructions
-* Go to this repo url(https://github.com/turingschool-examples/travel-tracker-api) and clone down the local server's. `CD` into it and then run `npm install` and then `npm start`. Leave this server running
+* Go to this repo url(https://github.com/turingschool-examples/travel-tracker-api) and clone down the local servers. `CD` into it and then run `npm install` and then `npm start`. Leave this server running
 * Then clone down Travel Tracker SSH(git@github.com:CodeMeister362/travelTracker.git). `CD` into the file and then run `npm install` and then run `npm start`.
 * This will then show the address of the local host `http://localhost:8080/` to copy and paste into your web browser. 
