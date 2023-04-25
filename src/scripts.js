@@ -75,7 +75,7 @@ Promise.all([travelerApi, destinationApi, tripsApi])
 			let allTimeSpent = allData.getTotalCost(userNum).toFixed(2)
 				spentDataDisplay.innerHTML = 
 				`<h2>Spent To Date</h2>
-					<p>$ ${allTimeSpent}</p>
+					<p>$ ${allTimeSpent} (10% Agent Fee Added)</p>
 				`	
 		} else {
 			alert('Password is not correct.')
@@ -129,7 +129,7 @@ Promise.all([travelerApi, destinationApi, tripsApi])
 			})
 			let newTripCost = allData.getNewTripCost(newTripDestination.id, inputTravelers.value, inputDuration.value) 
 			let tripPlusAgentFee = newTripCost + (newTripCost * .1)
-			showEstimate.innerHTML = `$${tripPlusAgentFee}`
+			showEstimate.innerHTML = `$ ${tripPlusAgentFee} (10% Agent Fee Added)`
 		}
 	})
 })
