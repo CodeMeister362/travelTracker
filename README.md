@@ -7,6 +7,7 @@ Travel Tracker is an application that allows a user to sign into their profile a
 This application connects to multiple api's in order to grab destination, user and traveler data. Once I have access to these arrays, I then use JS to see where each traveler has been, calculate their total expenditure on traveling for this year and to estimate the cost of their next trip. 
 
 ### Preview of App:
+![Screenshot 2023-04-27 at 8 50 05 AM](https://user-images.githubusercontent.com/66446070/234917781-0054f9d1-d3ff-438e-94ec-6a66de886a4c.png)
 ![Travel Tracker](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzRkYThhYjg2ZmFmZmIwMzI2MjQyYTZkMDkxNmYxOGYzYzIzZDZiNyZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/SRxJPwBUhXA69vwTN0/giphy.gif)
 
 ### Context:
